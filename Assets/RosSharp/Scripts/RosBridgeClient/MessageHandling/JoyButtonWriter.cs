@@ -17,8 +17,19 @@ using UnityEngine;
 
 namespace RosSharp.RosBridgeClient
 {
-    public abstract class JoyButtonWriter : MonoBehaviour
+    public class JoyButtonWriter : MonoBehaviour
     {
-        public abstract void Write(int value);
+        public bool state;
+        public void Write(int value)
+        {
+            if (value == 1)
+            {
+                state = true;
+            }
+            else
+            {
+                state = false;
+            }
+        }
     }
 }
