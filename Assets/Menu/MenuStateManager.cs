@@ -9,6 +9,8 @@ using UnityEngine;
 public class MenuStateManager : MonoBehaviour
 {
     public MenuBaseState currentState;
+    // Drop the "Menu" word from state class
+    public string currentStateString;
 
     public Cursor cursor;
 
@@ -44,6 +46,7 @@ public class MenuStateManager : MonoBehaviour
 
         public MenuStates()
         {
+            menu_states["SpectatorButton"] = new MenuSpectatorState();
             menu_states["CursorBallButton"] = new MenuCursorBallState();
             menu_states["CursorLaserButton"] = new MenuCursorLaserState();
             menu_states["RequestrPSMButton"] = new MenuRealTeleopMasterState();
@@ -74,9 +77,8 @@ public class MenuStateManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Starting Menu State Machine");
-        Debug.Log("The initial state is " + menu_states["CursorBallButton"].ToString());
-        currentState = menu_states["CursorBallButton"];
-        currentState.EnterState(this, cursor);
+        currentState = menu_states["SpectatorButton"];
+        currentStateString = "SpectatorState";
     }
 
     // Update is called once per frame
@@ -87,8 +89,11 @@ public class MenuStateManager : MonoBehaviour
 
     public void SwitchState(MenuBaseState state)
     {
-        currentState = state;
-        currentState.EnterState(this, cursor);
+        if (state != currentState)
+        {
+            currentState = state;
+            currentState.EnterState(this, cursor);
+        }
     }
 
     private void expandMenu(string option)

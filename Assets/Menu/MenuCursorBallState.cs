@@ -5,10 +5,12 @@ namespace Menu
 {
     public class MenuCursorBallState : MenuBaseState
     {
-        public int MenuCursorBallStateID { get; set; }
         public override void EnterState(MenuStateManager menu, Cursor cursor)
         {
             menu.menu_options["sub_options"] = new [] {4, 5, 6, 7, 8, 9};
+            menu.currentStateString = "CursorBallState";
+            menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().SwitchState(
+                menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().console_states[menu.currentStateString]);
         }
 
         public override void UpdateState(MenuStateManager menu, Cursor cursor)

@@ -7,8 +7,9 @@ namespace Menu
         public override void EnterState(MenuStateManager menu, Cursor cursor)
         {
             Debug.Log("Menu In Real Teleop Slave State");
+            menu.currentStateString = "RealTeleopSlaveState";
             menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().SwitchState(
-                menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().console_states[menu.currentState]);
+                menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().console_states[menu.currentStateString]);
         }
 
         public override void UpdateState(MenuStateManager menu, Cursor cursor)

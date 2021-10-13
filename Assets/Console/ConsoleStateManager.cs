@@ -31,20 +31,20 @@ public class ConsoleStateManager : MonoBehaviour
 
     public class ConsoleStates
     {
-        private readonly Dictionary<MenuBaseState, ConsoleBaseState> console_states =
-            new Dictionary<MenuBaseState, ConsoleBaseState>();
+        private readonly Dictionary<string, ConsoleBaseState> console_states =
+            new Dictionary<string, ConsoleBaseState>();
 
         public ConsoleStates()
         {
-            console_states[new MenuSpectatorState()] = new ConsoleSpectatorState();
-            console_states[new MenuCursorBallState()] = new ConsoleCursorBallState();
-            console_states[new MenuCursorLaserState()] = new ConsoleCursorLaserState();
-            console_states[new MenuRealTeleopMasterState()] = new ConsoleRealTeleopMasterState();
-            console_states[new MenuRealTeleopSlaveState()] = new ConsoleRealTeleopSlaveState();
-            console_states[new MenuVirtualTeleopState()] = new ConsoleVirtualTeleopState();
+            console_states["SpectatorState"]= new ConsoleSpectatorState();
+            console_states["CursorBallState"]= new ConsoleCursorBallState();
+            console_states["CursorLaserState"]= new ConsoleCursorLaserState();
+            console_states["RealTeleopMasterState"]= new ConsoleRealTeleopMasterState();
+            console_states["RealTeleopSlaveState"]= new ConsoleRealTeleopSlaveState();
+            console_states["VirtualTeleopState"]= new ConsoleVirtualTeleopState();
         }
 
-        public ConsoleBaseState this[MenuBaseState key]
+        public ConsoleBaseState this[string key]
         {
             get => console_states[key];
             set => console_states[key] = value;
@@ -56,8 +56,7 @@ public class ConsoleStateManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Starting Console State Machine");
-        Debug.Log("The initial state is " + console_states[new MenuCursorBallState()].ToString());
-        currentState = console_states[new MenuCursorBallState()];
+        currentState = console_states["SpectatorState"];
         currentState.EnterState(this);
     }
 
@@ -80,8 +79,11 @@ public class ConsoleStateManager : MonoBehaviour
 
     public void SwitchState(ConsoleBaseState state)
     {
-        currentState.ExitState(this);
-        currentState = state;
-        currentState.EnterState(this);
+        if (state != currentState)
+        {
+            currentState.ExitState(this);
+            currentState = state;
+            currentState.EnterState(this);
+        }
     }
 }
