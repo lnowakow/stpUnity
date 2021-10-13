@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Menu;
@@ -10,7 +9,8 @@ using UnityEngine;
 public class MenuStateManager : MonoBehaviour
 {
     public MenuBaseState currentState;
-    public string optionSelected = "none";
+
+    public Cursor cursor;
 
     // ROS Topics for knowing console's state
     // Publishers
@@ -25,12 +25,8 @@ public class MenuStateManager : MonoBehaviour
         {
             menu_options = new Dictionary<string, int[]>
             {
-                {"main_options", new int[] {0, 1, 2, 3, 10}},
-                {"CursorButton", new int[] {4, 5}},
-                {"rPSMButton", new int[] {6}},
-                {"vPSMButton", new[] {7}},
-                {"FollowButton", new int[] {8, 9}},
-                {"none", new int[] {4, 5, 6, 7, 8, 9}}
+                {"main_options", new [] {0, 1, 2, 3, 10}},
+                {"sub_options", new [] {4, 5, 6, 7, 8, 9}}
             };
         }    
         public int[] this[string key]
@@ -39,62 +35,69 @@ public class MenuStateManager : MonoBehaviour
             set { menu_options[key] = value;  }
         }
     }
-    
 
     public MenuOptions menu_options = new MenuOptions();
 
-    //[System.Serializable]
-    public class dVRK_INFO
+    public class MenuStates
     {
-        public string mMTM;
-        public string mPSM;
-        public string mCURSOR;
-        public string mFOOTPEDAL_CLUTCH;
-        public string mFOOTPEDAL_CAMERA;
-        public string mFOOTPEDAL_COAG;
+        private readonly Dictionary<string, MenuBaseState> menu_states = new Dictionary<string, MenuBaseState>();
+
+        public MenuStates()
+        {
+            menu_states["CursorBallButton"] = new MenuCursorBallState();
+            menu_states["CursorLaserButton"] = new MenuCursorLaserState();
+            menu_states["RequestrPSMButton"] = new MenuRealTeleopMasterState();
+            menu_states["RequestvPSMButton"] = new MenuVirtualTeleopState();
+            menu_states["RequestMasterButton"] = new MenuRealTeleopMasterState();
+            menu_states["RequestSlaveButton"] = new MenuRealTeleopSlaveState();
+        }
+
+        public MenuBaseState this[string key]
+        {
+            get => menu_states[key];
+            set => menu_states[key] = value;
+        }
     }
 
-    public dVRK_INFO dvrk_names;
+    public MenuStates menu_states = new MenuStates();
     
     // All possible states for a console
+    /*
     public MenuSpectatorState SpectatorState = new MenuSpectatorState();
     public MenuCursorBallState CursorBallState = new MenuCursorBallState();
     public MenuCursorLaserState CursorLaserState = new MenuCursorLaserState();
     public MenuVirtualTeleopState VirtualTeleopState = new MenuVirtualTeleopState();
     public MenuRealTeleopMasterState RealTeleopMasterState = new MenuRealTeleopMasterState();
     public MenuRealTeleopSlaveState RealTeleopSlaveState = new MenuRealTeleopSlaveState();
-
+    */
     // Start is called before the first frame update
     void Start()
     {
-        optionSelected = "none";
-        currentState = CursorBallState;
-        currentState.EnterState(this, optionSelected);
+        Debug.Log("Starting Menu State Machine");
+        Debug.Log("The initial state is " + menu_states["CursorBallButton"].ToString());
+        currentState = menu_states["CursorBallButton"];
+        currentState.EnterState(this, cursor);
     }
 
     // Update is called once per frame
     void Update()
     {
-        JoyButtonWriter[] footpedals = gameObject.GetComponents<JoyButtonWriter>();
-
-        if (!footpedals[0].state && footpedals[1].state)
-        {
-            currentState.UpdateState(this, optionSelected);
-        }
-        else
-        {
-            //Debug.Log("The Menu should not be visible");
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-            {
-                gameObject.transform.GetChild(i).gameObject.SetActive(false);
-            }
-            
-        }
+        currentState.UpdateState(this, cursor);
     }
 
     public void SwitchState(MenuBaseState state)
     {
         currentState = state;
-        currentState.EnterState(this, optionSelected);
+        currentState.EnterState(this, cursor);
+    }
+
+    private void expandMenu(string option)
+    {
+            //Debug.Log(menu_options[option].Length);
+            for (int i = 0; i < menu_options[option].Length; i++)
+            {
+                //Debug.Log("i:" + i + " is " + gameObject.transform.GetChild(i).name);
+                gameObject.transform.GetChild(menu_options[option][i]).gameObject.SetActive(true);
+            }
     }
 }

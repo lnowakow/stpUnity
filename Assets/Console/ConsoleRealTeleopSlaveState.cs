@@ -1,9 +1,12 @@
+using UnityEngine;
+
 namespace Console
 {
     public class ConsoleRealTeleopSlaveState : ConsoleBaseState
     {
         public override void EnterState(ConsoleStateManager console)
         {
+            Debug.Log("Console In Real Teleop Slave State");
             
         }
 

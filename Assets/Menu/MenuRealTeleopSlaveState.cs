@@ -4,33 +4,18 @@ namespace Menu
 {
     public class MenuRealTeleopSlaveState : MenuBaseState
     {
-        private int[] display_children;
-        public override void EnterState(MenuStateManager menu, string option)
+        public override void EnterState(MenuStateManager menu, Cursor cursor)
         {
-            display_children = new[]
-            {
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9
-            };
+            Debug.Log("Menu In Real Teleop Slave State");
+            menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().SwitchState(
+                menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().console_states[menu.currentState]);
         }
 
-        public override void UpdateState(MenuStateManager menu, string option)
+        public override void UpdateState(MenuStateManager menu, Cursor cursor)
         {
             //Debug.Log("Menu " + menu.name + ": in Spectator State.");
             //Debug.Log("The Menu should be visible");
-            for (int i = 0; i < display_children.Length; i++)
-            {
-                //Debug.Log("i:" + i + " is " + menu.gameObject.transform.GetChild(i).name);
-                menu.gameObject.transform.GetChild(display_children[i]).gameObject.SetActive(true);
-            }
         }
+        
     }
 }
