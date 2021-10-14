@@ -12,7 +12,6 @@ public class ConsoleStateManager : MonoBehaviour
 {
     public ConsoleBaseState currentState;
     public UnityEvent menuIsVisible, menuIsNotVisible;
-    public MenuStateManager menu;
     
     // ROS Topics for knowing console's state
     // Publishers
