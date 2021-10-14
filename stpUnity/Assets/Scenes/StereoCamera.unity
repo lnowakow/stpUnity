@@ -1789,6 +1789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4e9b79b94e12981ac47b73582f2562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStateString: 
   cursor: {fileID: 496665923}
 --- !u!114 &992131203
 MonoBehaviour:
@@ -2550,6 +2551,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  menu: {fileID: 992131199}
   _console_teleop_enable: {fileID: 1631260098}
   _console_teleop_select_teleop: {fileID: 1631260097}
   dvrk_names:
