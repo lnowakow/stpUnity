@@ -2444,6 +2444,7 @@ GameObject:
   - component: {fileID: 1631260104}
   - component: {fileID: 1631260103}
   - component: {fileID: 1631260099}
+  - component: {fileID: 1631260108}
   m_Layer: 0
   m_Name: Console1
   m_TagString: Untagged
@@ -2464,8 +2465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Topic: /console/teleop/select_teleop_psm
-  key: 
-  value: 
+  _data: {fileID: 1631260108}
 --- !u!114 &1631260098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2551,12 +2551,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  menu: {fileID: 992131199}
   _console_teleop_enable: {fileID: 1631260098}
   _console_teleop_select_teleop: {fileID: 1631260097}
   dvrk_names:
-    mMTM: 
-    mPSM: 
+    mTeleop: {fileID: 1631260108}
     mCURSOR: 
 --- !u!4 &1631260102
 Transform:
@@ -2652,6 +2650,20 @@ MonoBehaviour:
   joyButtonWriters:
   - {fileID: 1631260104}
   joyAxisWriters: []
+--- !u!114 &1631260108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631260096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462b01435d2ac61c5b2ad7a1b764ff9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: MTMR_PRIMARY
+  _value: 
 --- !u!1 &1665449493
 GameObject:
   m_ObjectHideFlags: 0

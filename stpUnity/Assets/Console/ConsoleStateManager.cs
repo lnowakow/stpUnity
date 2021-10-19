@@ -22,8 +22,7 @@ public class ConsoleStateManager : MonoBehaviour
     [System.Serializable]
     public class dVRK_INFO
     {
-        public string mMTM;
-        public string mPSM;
+        public KeyValueReader mTeleop;
         public string mCURSOR;
     }
     public dVRK_INFO dvrk_names;

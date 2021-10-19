@@ -13,7 +13,7 @@ namespace RosSharp.RosBridgeClient
     public class KeyValuePublisher : UnityPublisher<MessageTypes.Diagnostic.KeyValue>
     {
         private MessageTypes.Diagnostic.KeyValue _message;
-        [HideInInspector] public string key, value;
+        public KeyValueReader _data;
         private string _previousKey, _previousValue;
 
         protected override void Start()
@@ -24,7 +24,7 @@ namespace RosSharp.RosBridgeClient
 
         protected void Update()
         {
-            if (key != _previousKey || value != _previousValue)
+            if (_data._key != _previousKey || _data._value != _previousValue)
             {
                UpdateMessage(); 
             }
@@ -37,11 +37,11 @@ namespace RosSharp.RosBridgeClient
 
         private void UpdateMessage()
         {
-            _message.key = key;
-            _message.value = value;
+            _message.key = _data._key;
+            _message.value = _data._value;
             Publish(_message);
-            _previousKey = key;
-            _previousValue = value;
+            _previousKey = _data._key;
+            _previousValue = _data._value;
         }
     }
 }
