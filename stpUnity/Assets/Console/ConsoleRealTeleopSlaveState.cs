@@ -26,8 +26,9 @@ namespace Console
             Debug.Log("Exiting MTMR_S teleop.");
             console._console_teleop_enable.status = false;
             console.dvrk_names.mTeleop._key = "MTMR_SECONDARY";
-            console.dvrk_names.mTeleop._value = String.Empty;
+            console.dvrk_names.mTeleop._value = "";
             console._console_teleop_select_teleop._data = console.dvrk_names.mTeleop;
+            console._console_teleop_select_teleop.UpdateMessage();
             
         }
     }

@@ -24,7 +24,7 @@ namespace RosSharp.RosBridgeClient
 
         protected void Update()
         {
-            if (_data._key != _previousKey || _data._value != _previousValue)
+            if (_data._key != _previousKey | _data._value != _previousValue)
             {
                UpdateMessage(); 
             }
@@ -35,7 +35,7 @@ namespace RosSharp.RosBridgeClient
             _message = new MessageTypes.Diagnostic.KeyValue();
         }
 
-        private void UpdateMessage()
+        public void UpdateMessage()
         {
             _message.key = _data._key;
             _message.value = _data._value;
