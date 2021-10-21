@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Footpedals;
+using UnityEditor;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine;
@@ -44,8 +46,15 @@ public class Cursor : MonoBehaviour
             if (overSpriteTimer > requiredHoldTime)
             {
                 Debug.Log("You clicked the button " + other.name);
-                gameObject.transform.parent.transform.GetComponent<MenuStateManager>().SwitchState(
-                    gameObject.transform.parent.transform.GetComponent<MenuStateManager>().menu_states[other.name]);
+                GetComponentInParent<MenuStateManager>().SwitchState(
+                    GetComponentInParent<MenuStateManager>().MenuState[other.name]);
+                Debug.Log("Top Most Transform: " + gameObject.transform.root.GetChild(3).name);
+                gameObject.transform.root.GetChild(3).GetComponent<FootpedalStateManager>().FootpedalStateString =
+                    "WaitState";
+                gameObject.transform.root.GetChild(3).GetComponent<FootpedalStateManager>().SwitchState(
+                    gameObject.transform.root.GetChild(3).GetComponent<FootpedalStateManager>().FootpedalState["WaitState"]);
+                    
+                
                 Reset();
             }
 

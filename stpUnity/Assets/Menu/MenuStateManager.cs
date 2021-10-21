@@ -62,7 +62,7 @@ public class MenuStateManager : MonoBehaviour
         }
     }
 
-    public MenuStates menu_states = new MenuStates();
+    public MenuStates MenuState = new MenuStates();
     
     // All possible states for a console
     /*
@@ -77,7 +77,7 @@ public class MenuStateManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Starting Menu State Machine");
-        currentState = menu_states["SpectatorButton"];
+        currentState = MenuState["SpectatorButton"];
         currentStateString = "SpectatorState";
     }
 

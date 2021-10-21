@@ -35,7 +35,12 @@ namespace RosSharp.RosBridgeClient
             _message = new MessageTypes.Diagnostic.KeyValue();
         }
 
-        public void UpdateMessage()
+        public void ForceUpdate()
+        {
+            UpdateMessage();
+        }
+
+        private void UpdateMessage()
         {
             _message.key = _data._key;
             _message.value = _data._value;

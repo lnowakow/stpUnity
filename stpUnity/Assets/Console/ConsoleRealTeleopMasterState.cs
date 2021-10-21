@@ -28,7 +28,7 @@ namespace Console
             console.dvrk_names.mTeleop._key = "MTMR_PRIMARY";
             console.dvrk_names.mTeleop._value = "";
             console._console_teleop_select_teleop._data = console.dvrk_names.mTeleop;
-            console._console_teleop_select_teleop.UpdateMessage();
+            console._console_teleop_select_teleop.ForceUpdate();
         }
     }
 }

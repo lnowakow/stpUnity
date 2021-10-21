@@ -10,7 +10,7 @@ namespace Menu
             menu.menu_options["sub_options"] = new [] {4, 5, 6, 7, 8, 9};
             menu.currentStateString = "CursorBallState";
             menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().SwitchState(
-                menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().console_states[menu.currentStateString]);
+                menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().ConsoleState[menu.currentStateString]);
         }
 
         public override void UpdateState(MenuStateManager menu, Cursor cursor)

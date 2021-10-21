@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Console;
+using Footpedals;
 using Menu;
 using RosSharp.RosBridgeClient;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class ConsoleStateManager : MonoBehaviour
     public BoolPublisher _console_teleop_enable;
     public KeyValuePublisher _console_teleop_select_teleop;
     // Subscribers
+    public FootpedalStateManager _footpedals;
 
     [System.Serializable]
     public class dVRK_INFO
@@ -48,30 +50,26 @@ public class ConsoleStateManager : MonoBehaviour
             set => console_states[key] = value;
         }
     }
-    public ConsoleStates console_states = new ConsoleStates();
+    public ConsoleStates ConsoleState = new ConsoleStates();
     
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Starting Console State Machine");
-        currentState = console_states["SpectatorState"];
+        currentState = ConsoleState["SpectatorState"];
         currentState.EnterState(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        JoyButtonWriter[] footpedals = gameObject.GetComponents<JoyButtonWriter>();
-
-        if (!footpedals[0].state && !footpedals[1].state)
+        if (_footpedals.GetComponent<FootpedalStateManager>().FootpedalStateString == "MenuState")
         {
             menuIsVisible.Invoke();
         }
-        else if (!footpedals[1].state)
-        {
+        else {
             menuIsNotVisible.Invoke();
         }
-        
         currentState.UpdateState(this);
     }
 
