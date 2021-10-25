@@ -9,7 +9,8 @@ namespace RosSharp.RosBridgeClient
     public class OperatingStatePublisher : UnityPublisher<MessageTypes.Crtk.Operating_state>
     {
         private MessageTypes.Crtk.Operating_state _operating_state;
-        [HideInInspector]
+        [HideInInspector] 
+        public MessageTypes.Std.Header _header;
         public string _status;
 
         public bool _is_homed;

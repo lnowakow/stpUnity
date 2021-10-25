@@ -46,14 +46,18 @@ public class Cursor : MonoBehaviour
             if (overSpriteTimer > requiredHoldTime)
             {
                 Debug.Log("You clicked the button " + other.name);
+                //string newState = other.name.Replace("Button", "State");
+                //gameObject.transform.root.GetComponent<ConsoleStateManager>().SwitchState(
+                //    gameObject.transform.root.GetComponent<ConsoleStateManager>().ConsoleState[newState]);
                 GetComponentInParent<MenuStateManager>().SwitchState(
                     GetComponentInParent<MenuStateManager>().MenuState[other.name]);
-                Debug.Log("Top Most Transform: " + gameObject.transform.root.GetChild(3).name);
                 gameObject.transform.root.GetChild(3).GetComponent<FootpedalStateManager>().FootpedalStateString =
                     "WaitState";
                 gameObject.transform.root.GetChild(3).GetComponent<FootpedalStateManager>().SwitchState(
                     gameObject.transform.root.GetChild(3).GetComponent<FootpedalStateManager>().FootpedalState["WaitState"]);
-                    
+                
+                // Reset cursor position to middle of screen
+                transform.position = new Vector3(0, 0, 0);
                 
                 Reset();
             }

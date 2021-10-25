@@ -37,8 +37,8 @@ public class ConsoleStateManager : MonoBehaviour
         public ConsoleStates()
         {
             console_states["SpectatorState"]= new ConsoleSpectatorState();
-            console_states["CursorBallState"]= new ConsoleCursorBallState();
-            console_states["CursorLaserState"]= new ConsoleCursorLaserState();
+            console_states["PointerBallState"]= new ConsolePointerBallState();
+            console_states["PointerLaserState"]= new ConsolePointerLaserState();
             console_states["RealTeleopMasterState"]= new ConsoleRealTeleopMasterState();
             console_states["RealTeleopSlaveState"]= new ConsoleRealTeleopSlaveState();
             console_states["VirtualTeleopState"]= new ConsoleVirtualTeleopState();

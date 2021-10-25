@@ -47,8 +47,8 @@ public class MenuStateManager : MonoBehaviour
         public MenuStates()
         {
             menu_states["SpectatorButton"] = new MenuSpectatorState();
-            menu_states["CursorBallButton"] = new MenuCursorBallState();
-            menu_states["CursorLaserButton"] = new MenuCursorLaserState();
+            menu_states["PointerBallButton"] = new MenuPointerBallState();
+            menu_states["PointerLaserButton"] = new MenuPointerLaserState();
             menu_states["RequestrPSMButton"] = new MenuRealTeleopMasterState();
             menu_states["RequestvPSMButton"] = new MenuVirtualTeleopState();
             menu_states["RequestMasterButton"] = new MenuRealTeleopMasterState();
@@ -60,25 +60,14 @@ public class MenuStateManager : MonoBehaviour
             get => menu_states[key];
             set => menu_states[key] = value;
         }
-    }
-
-    public MenuStates MenuState = new MenuStates();
+    } public MenuStates MenuState = new MenuStates();
     
-    // All possible states for a console
-    /*
-    public MenuSpectatorState SpectatorState = new MenuSpectatorState();
-    public MenuCursorBallState CursorBallState = new MenuCursorBallState();
-    public MenuCursorLaserState CursorLaserState = new MenuCursorLaserState();
-    public MenuVirtualTeleopState VirtualTeleopState = new MenuVirtualTeleopState();
-    public MenuRealTeleopMasterState RealTeleopMasterState = new MenuRealTeleopMasterState();
-    public MenuRealTeleopSlaveState RealTeleopSlaveState = new MenuRealTeleopSlaveState();
-    */
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Starting Menu State Machine");
-        currentState = MenuState["SpectatorButton"];
-        currentStateString = "SpectatorState";
+        currentStateString = "SpectatorButton";
+        currentState = MenuState[currentStateString];
     }
 
     // Update is called once per frame

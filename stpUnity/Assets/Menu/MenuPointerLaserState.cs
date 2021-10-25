@@ -1,14 +1,14 @@
-using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace Menu
 {
-    public class MenuCursorBallState : MenuBaseState
+    public class MenuPointerLaserState : MenuBaseState
     {
         public override void EnterState(MenuStateManager menu, Cursor cursor)
         {
-            menu.menu_options["sub_options"] = new [] {4, 5, 6, 7, 8, 9};
-            menu.currentStateString = "CursorBallState";
+            Debug.Log("In Pointer Laser State");
+            menu.currentStateString = "PointerLaserState";
             menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().SwitchState(
                 menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().ConsoleState[menu.currentStateString]);
         }
@@ -17,8 +17,6 @@ namespace Menu
         {
             //Debug.Log("Menu " + menu.name + ": in Spectator State.");
             //Debug.Log("The Menu should be visible");
-
         }
     }
 }
-        
