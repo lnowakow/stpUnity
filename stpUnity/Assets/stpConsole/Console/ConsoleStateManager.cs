@@ -16,8 +16,10 @@ public class ConsoleStateManager : MonoBehaviour
     
     // ROS Topics for knowing console's state
     // Publishers
-    public BoolPublisher _console_teleop_enable;
-    public KeyValuePublisher _console_teleop_select_teleop;
+    [FormerlySerializedAs("_console_teleop_enable")] public BoolPublisher _dvrk_console_teleop_enable;
+    [FormerlySerializedAs("_console_teleop_select_teleop")] public KeyValuePublisher _dvrk_console_teleop_select_teleop;
+
+    public KeyValuePublisher _stpConsole_teleop_select_teleop;
     // Subscribers
     public FootpedalStateManager _footpedals;
 

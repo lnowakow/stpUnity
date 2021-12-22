@@ -10,10 +10,10 @@ namespace Console
         {
             Debug.Log("Console " + console.name + ": in RealTeleopMaster State.");
             Debug.Log("Entering into MTMR_P teleop");
-            console._console_teleop_enable.status = true;
+            console._dvrk_console_teleop_enable.status = true;
             console.dvrk_names.mTeleop._key = "MTMR_PRIMARY";
             console.dvrk_names.mTeleop._value = "PSM2";
-            console._console_teleop_select_teleop._data = console.dvrk_names.mTeleop;
+            console._dvrk_console_teleop_select_teleop._data = console.dvrk_names.mTeleop;
         }
 
         public override void UpdateState(ConsoleStateManager console)
@@ -24,11 +24,11 @@ namespace Console
         public override void ExitState(ConsoleStateManager console)
         {
             Debug.Log("Exiting from MTMR_P teleop");
-            console._console_teleop_enable.status = false;
+            console._dvrk_console_teleop_enable.status = false;
             console.dvrk_names.mTeleop._key = "MTMR_PRIMARY";
             console.dvrk_names.mTeleop._value = "";
-            console._console_teleop_select_teleop._data = console.dvrk_names.mTeleop;
-            console._console_teleop_select_teleop.ForceUpdate();
+            console._dvrk_console_teleop_select_teleop._data = console.dvrk_names.mTeleop;
+            console._dvrk_console_teleop_select_teleop.ForceUpdate();
         }
     }
 }
