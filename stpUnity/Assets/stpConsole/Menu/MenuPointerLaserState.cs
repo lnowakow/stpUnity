@@ -9,8 +9,8 @@ namespace Menu
         {
             Debug.Log("In Pointer Laser State");
             menu.currentStateString = "PointerLaserState";
-            menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().SwitchState(
-                menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().ConsoleState[menu.currentStateString]);
+            menu.transform.root.parent.GetComponent<ConsoleStateManager>().SwitchState(
+                menu.transform.root.GetComponent<ConsoleStateManager>().ConsoleState[menu.currentStateString]);
         }
 
         public override void UpdateState(MenuStateManager menu, Cursor cursor)

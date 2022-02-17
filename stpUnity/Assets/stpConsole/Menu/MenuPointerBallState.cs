@@ -9,8 +9,11 @@ namespace Menu
         {
             menu.menu_options["sub_options"] = new [] {4, 5, 6, 7, 8, 9};
             menu.currentStateString = "PointerBallState";
-            menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().SwitchState(
-                menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().ConsoleState[menu.currentStateString]);
+            //menu.gameObject.transform.GetComponent<ConsoleStateManager>().SwitchState(
+             //   menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().ConsoleState[menu.currentStateString]);
+             Debug.Log("Debugging EnterState for MenuPointer");
+            menu.transform.root.GetComponent<ConsoleStateManager>().SwitchState(
+                menu.transform.root.GetComponent<ConsoleStateManager>().ConsoleState["PointerBallState"]);
         }
 
         public override void UpdateState(MenuStateManager menu, Cursor cursor)

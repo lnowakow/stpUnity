@@ -7,6 +7,7 @@ namespace Footpedals
         public override void EnterState(FootpedalStateManager footpedals)
         {
             Debug.Log("Footpedals in " + footpedals.FootpedalStateString);
+            
         }
 
         public override void UpdateState(FootpedalStateManager footpedals)

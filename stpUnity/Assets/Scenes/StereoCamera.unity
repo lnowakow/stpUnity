@@ -964,8 +964,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405226933}
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 26}
-  m_LocalScale: {x: 4, y: 1, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 0.08, y: 1, z: 0.06}
   m_Children: []
   m_Father: {fileID: 295928773}
   m_RootOrder: 0
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 295928772}
-  distanceFromCamera: 80
+  distanceFromCamera: 1
 --- !u!114 &405226939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1681,14 +1681,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739689794}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.6903455, y: -0.6903455, z: 0.15304592, w: -0.15304591}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1434961551}
   - {fileID: 1150150144}
-  m_Father: {fileID: 1631260102}
-  m_RootOrder: 3
+  m_Father: {fileID: 692377065}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &739689796
 MonoBehaviour:
@@ -1935,7 +1935,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1631260102}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &910200725 stripped
 Transform:
@@ -1978,7 +1978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camL: {fileID: 1758837568}
   camR: {fileID: 295928772}
-  distanceFromCamera: 30
+  distanceFromCamera: 0.5
 --- !u!64 &992131195
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2049,9 +2049,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992131193}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.15304591, y: -0.15304592, z: 0.6903455, w: 0.6903455}
+  m_LocalPosition: {x: 0.12, y: 0, z: -0.2}
+  m_LocalScale: {x: 0.01, y: 0.009999999, z: 0.009999999}
   m_Children:
   - {fileID: 1186210014}
   - {fileID: 1781107379}
@@ -2064,8 +2064,8 @@ Transform:
   - {fileID: 589894211}
   - {fileID: 1112684001}
   - {fileID: 496665919}
-  m_Father: {fileID: 1631260102}
-  m_RootOrder: 1
+  m_Father: {fileID: 692377065}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &992131199
 MonoBehaviour:
@@ -2848,7 +2848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434961550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.06, y: 5.25, z: -17.95}
+  m_LocalPosition: {x: 0, y: 0.04, z: 0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 739689795}
@@ -2989,7 +2989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e398557723143cde9967d638fb85674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /CURSOR/servo_cp
+  Topic: /MTML_SECONDARY/measured_cp
   TimeStep: 0.01
   transform: {fileID: 1434961551}
 --- !u!4 &1439877953 stripped
@@ -3252,8 +3252,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _console_teleop_enable: {fileID: 1631260098}
-  _console_teleop_select_teleop: {fileID: 1631260097}
+  _dvrk_console_teleop_enable: {fileID: 1631260098}
+  _dvrk_console_teleop_select_teleop: {fileID: 1631260097}
+  _stpConsole_teleop_select_teleop: {fileID: 0}
   _footpedals: {fileID: 884409849}
   dvrk_names:
     mTeleop: {fileID: 1631260108}
@@ -3270,9 +3271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 910200725}
-  - {fileID: 992131198}
   - {fileID: 884409857}
-  - {fileID: 739689795}
   - {fileID: 2014954372}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -3563,8 +3562,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684283155}
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 26}
-  m_LocalScale: {x: 4, y: 1, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 0.08, y: 1, z: 0.06}
   m_Children: []
   m_Father: {fileID: 1758837569}
   m_RootOrder: 0
@@ -3582,7 +3581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1758837568}
-  distanceFromCamera: 80
+  distanceFromCamera: 1
 --- !u!114 &1684283161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3909,7 +3908,7 @@ Transform:
   - {fileID: 1332815264}
   - {fileID: 1439877953}
   m_Father: {fileID: 1631260102}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2014954373
 MonoBehaviour:

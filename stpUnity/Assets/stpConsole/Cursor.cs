@@ -49,13 +49,17 @@ public class Cursor : MonoBehaviour
                 //string newState = other.name.Replace("Button", "State");
                 //gameObject.transform.root.GetComponent<ConsoleStateManager>().SwitchState(
                 //    gameObject.transform.root.GetComponent<ConsoleStateManager>().ConsoleState[newState]);
+                
+                // Reset cursor position to middle of screen
+                transform.localPosition = new Vector3(0, 0, 0);
+                
                 GetComponentInParent<MenuStateManager>().SwitchState(
                     GetComponentInParent<MenuStateManager>().MenuState[other.name]);
                 gameObject.transform.root.Find("Footpedals").GetComponent<FootpedalStateManager>().SwitchState(
                     gameObject.transform.root.Find("Footpedals").GetComponent<FootpedalStateManager>().FootpedalState["WaitState"]);
                 
-                // Reset cursor position to middle of screen
-                transform.position = new Vector3(0, 0, 0);
+                
+
                 
                 Reset();
             }

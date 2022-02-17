@@ -10,8 +10,8 @@ namespace Menu
          {
             Debug.Log("In Real TeleopMaster State");
             menu.currentStateString = "RealTeleopMasterState";
-            menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().SwitchState(
-                menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().ConsoleState[menu.currentStateString]);
+            menu.transform.root.GetComponent<ConsoleStateManager>().SwitchState(
+                menu.transform.root.GetComponent<ConsoleStateManager>().ConsoleState[menu.currentStateString]);
          }
  
          public override void UpdateState(MenuStateManager menu, Cursor cursor)

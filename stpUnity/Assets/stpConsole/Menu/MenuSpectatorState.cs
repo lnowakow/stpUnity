@@ -9,8 +9,8 @@ namespace Menu
         {
             Debug.Log("In Spectator State");
             menu.currentStateString = "SpectatorState";
-            menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().SwitchState(
-                menu.gameObject.transform.parent.GetComponent<ConsoleStateManager>().ConsoleState[menu.currentStateString]);
+            menu.transform.root.GetComponent<ConsoleStateManager>().SwitchState(
+                menu.transform.root.GetComponent<ConsoleStateManager>().ConsoleState[menu.currentStateString]);
         }
 
         public override void UpdateState(MenuStateManager menu, Cursor cursor)
