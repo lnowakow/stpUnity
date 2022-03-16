@@ -2866,7 +2866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b766d6b2ee0483fad62b1aa02b8e5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /CURSOR/measured_cp
+  Topic: /R1_CURSOR/measured_cp
   PublishedTransform: {fileID: 1434961551}
   FrameId: Console1
 --- !u!114 &1434961553
@@ -2893,7 +2893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4d781cbcb04af1ac1f8bea7200792b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /CURSOR/state_command
+  Topic: /R2_CURSOR/state_command
   TimeStep: 0.05
   state: {fileID: 1434961553}
 --- !u!114 &1434961555
@@ -2984,12 +2984,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434961550}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e398557723143cde9967d638fb85674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /MTML_SECONDARY/measured_cp
+  Topic: /R1_CURSOR/servo_cp
   TimeStep: 0.01
   transform: {fileID: 1434961551}
 --- !u!4 &1439877953 stripped
