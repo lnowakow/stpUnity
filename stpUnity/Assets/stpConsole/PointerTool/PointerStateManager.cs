@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using RosSharp.RosBridgeClient;
+using RosSharp.RosBridgeClient.MessageTypes.Crtk;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -9,6 +11,13 @@ namespace PointerTool
     {
         public PointerBaseState currentState;
         public string currentStateString;
+
+        public OperatingStatePublisher cursorOperatingState;
+
+        public class cursor_topic_data
+        {
+            public OperatingStateReader mOperatingState;
+        } public cursor_topic_data cursorTopicData;
         
         public class PointerStates
         {

@@ -15,21 +15,32 @@ public class ConsoleStateManager : MonoBehaviour
     public UnityEvent menuIsVisible, menuIsNotVisible;
     
     // ROS Topics for knowing console's state
-    // Publishers
-    [FormerlySerializedAs("_console_teleop_enable")] public BoolPublisher _dvrk_console_teleop_enable;
-    [FormerlySerializedAs("_console_teleop_select_teleop")] public KeyValuePublisher _dvrk_console_teleop_select_teleop;
+    public class dVRK_Console_ROS
+    {
+        // Publishers
+        public BoolPublisher teleopEnable;
+        public KeyValuePublisher teleopSelectTeleop;
+        // Subscribers
 
-    public KeyValuePublisher _stpConsole_teleop_select_teleop;
-    // Subscribers
+    } public dVRK_Console_ROS dVRKConsoleROS;
+
+    public class stp_Console_ROS
+    {
+        // Publishers
+        public OperatingStatePublisher cursorOperatingState;
+        public KeyValuePublisher teleopSelectTeleop;
+        // Subscribers
+        
+    } public stp_Console_ROS stpConsoleROS;
+    
     public FootpedalStateManager _footpedals;
-
+    
     [System.Serializable]
-    public class dVRK_INFO
+    public class ros_TOPIC_DATA
     {
         public KeyValueReader mTeleop;
-        public string mCURSOR;
-    }
-    public dVRK_INFO dvrk_names;
+        public OperatingStateReader mCURSOROperatingState;
+    } public ros_TOPIC_DATA rosTopicData;
 
     public class ConsoleStates
     {

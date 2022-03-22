@@ -10,7 +10,7 @@ using RosSharp.RosBridgeClient.MessageTypes.Std;
 
 namespace RosSharp.RosBridgeClient.MessageTypes.Crtk
 {
-    public class Operating_state : Message
+    public class OperatingState : Message
     {
         public const string RosMessageName = "crtk_msgs/Operating_state";
 
@@ -24,7 +24,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.Crtk
         public bool is_homed { get; set; }
         public bool is_busy { get; set; }
 
-        public Operating_state()
+        public OperatingState()
         {
             this.header = new Header();
             this.state = "";
@@ -32,7 +32,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.Crtk
             this.is_busy = false;
         }
 
-        public Operating_state(Header header, string state, bool is_homed, bool is_busy)
+        public OperatingState(Header header, string state, bool is_homed, bool is_busy)
         {
             this.header = header;
             this.state = state;

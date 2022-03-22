@@ -6,16 +6,11 @@ using UnityEngine.UIElements;
 
 namespace RosSharp.RosBridgeClient
 {
-    public class OperatingStatePublisher : UnityPublisher<MessageTypes.Crtk.Operating_state>
+    public class OperatingStatePublisher : UnityPublisher<MessageTypes.Crtk.OperatingState>
     {
-        private MessageTypes.Crtk.Operating_state _operating_state;
-        [HideInInspector] 
-        public MessageTypes.Std.Header _header;
-        public string _status;
-
-        public bool _is_homed;
-        public bool _is_busy;
-        private string _previousStatus;
+        private MessageTypes.Crtk.OperatingState _operating_state;
+        [HideInInspector] public OperatingStateReader data;
+        private string _previousState;
         
         protected override void Start()
         {
@@ -25,7 +20,7 @@ namespace RosSharp.RosBridgeClient
 
         private void Update()
         {
-            if (_status != _previousStatus)
+            if (data._state != _previousState)
             {
                 UpdateMessage();
             }
@@ -33,21 +28,27 @@ namespace RosSharp.RosBridgeClient
         
         private void InitializeMessage()
         {
-            _operating_state = new MessageTypes.Crtk.Operating_state()
+            _operating_state = new MessageTypes.Crtk.OperatingState()
             {
-                state = _status,
-                is_homed = _is_homed,
-                is_busy = _is_busy
+                state = data._state,
+                is_homed = data._is_home,
+                is_busy = data._is_busy
             };
         }
 
         private void UpdateMessage()
         {
-            _operating_state.state = _status;
-            _operating_state.is_homed = _is_homed;
-            _operating_state.is_busy = _is_busy;
+            _operating_state.state = data._state;
+            _operating_state.is_homed = data._is_home;
+            _operating_state.is_busy = data._is_busy;
             Publish(_operating_state);
-            _previousStatus = _status;
+            _previousState = data._state;
         }
+
+        public void ForceUpdate()
+        {
+            UpdateMessage();
+        }
+        
     }
 }
