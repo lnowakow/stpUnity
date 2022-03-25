@@ -11,9 +11,9 @@ namespace Console
             Debug.Log("Console " + console.name + ": in RealTeleopMaster State.");
             Debug.Log("Entering into MTMR_P teleop");
             console.dVRKConsoleROS.teleopEnable.status = true;
-            console.rosTopicData.mTeleop._key = "MTMR_PRIMARY";
-            console.rosTopicData.mTeleop._value = "PSM2";
-            console.dVRKConsoleROS.teleopSelectTeleop._data = console.rosTopicData.mTeleop;
+            console.rosTopicData.mTeleopSelectTeleop._key = "MTMR_PRIMARY";
+            console.rosTopicData.mTeleopSelectTeleop._value = "PSM2";
+            console.dVRKConsoleROS.teleopSelectTeleop._data = console.rosTopicData.mTeleopSelectTeleop;
         }
 
         public override void UpdateState(ConsoleStateManager console)
@@ -25,9 +25,9 @@ namespace Console
         {
             Debug.Log("Exiting from MTMR_P teleop");
             console.dVRKConsoleROS.teleopEnable.status = false;
-            console.rosTopicData.mTeleop._key = "MTMR_PRIMARY";
-            console.rosTopicData.mTeleop._value = "";
-            console.dVRKConsoleROS.teleopSelectTeleop._data = console.rosTopicData.mTeleop;
+            console.rosTopicData.mTeleopSelectTeleop._key = "MTMR_PRIMARY";
+            console.rosTopicData.mTeleopSelectTeleop._value = "";
+            console.dVRKConsoleROS.teleopSelectTeleop._data = console.rosTopicData.mTeleopSelectTeleop;
             console.dVRKConsoleROS.teleopSelectTeleop.ForceUpdate();
         }
     }

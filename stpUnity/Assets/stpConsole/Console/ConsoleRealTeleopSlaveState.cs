@@ -10,9 +10,9 @@ namespace Console
             Debug.Log("Console In Real Teleop Slave State");
             Debug.Log("Entering into MTMR_S teleop.");
             console.dVRKConsoleROS.teleopEnable.status = true;
-            console.rosTopicData.mTeleop._key = "MTMR_SECONDARY";
-            console.rosTopicData.mTeleop._value = "PSM2";
-            console.dVRKConsoleROS.teleopSelectTeleop._data = console.rosTopicData.mTeleop;
+            console.rosTopicData.mTeleopSelectTeleop._key = "MTMR_SECONDARY";
+            console.rosTopicData.mTeleopSelectTeleop._value = "PSM2";
+            console.dVRKConsoleROS.teleopSelectTeleop._data = console.rosTopicData.mTeleopSelectTeleop;
             
         }
 
@@ -25,9 +25,9 @@ namespace Console
         {
             Debug.Log("Exiting MTMR_S teleop.");
             console.dVRKConsoleROS.teleopEnable.status = false;
-            console.rosTopicData.mTeleop._key = "MTMR_SECONDARY";
-            console.rosTopicData.mTeleop._value = "";
-            console.dVRKConsoleROS.teleopSelectTeleop._data = console.rosTopicData.mTeleop;
+            console.rosTopicData.mTeleopSelectTeleop._key = "MTMR_SECONDARY";
+            console.rosTopicData.mTeleopSelectTeleop._value = "";
+            console.dVRKConsoleROS.teleopSelectTeleop._data = console.rosTopicData.mTeleopSelectTeleop;
             console.dVRKConsoleROS.teleopSelectTeleop.ForceUpdate();
             
         }

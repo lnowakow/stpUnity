@@ -2910,7 +2910,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Topic: /CURSOR/operating_state
-  data: {fileID: 0}
 --- !u!114 &1434961556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3158,6 +3157,8 @@ GameObject:
   - component: {fileID: 1631260098}
   - component: {fileID: 1631260097}
   - component: {fileID: 1631260108}
+  - component: {fileID: 1631260103}
+  - component: {fileID: 1631260099}
   m_Layer: 0
   m_Name: Console1
   m_TagString: Untagged
@@ -3177,7 +3178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5ce7dfbdfe474ca542471470afaeaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /console/teleop/select_teleop_psm
+  Topic: /stpConsole1/teleop/select_teleop_psm
   _data: {fileID: 1631260108}
 --- !u!114 &1631260098
 MonoBehaviour:
@@ -3193,6 +3194,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Topic: /console/teleop/enable
   status: 0
+--- !u!114 &1631260099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631260096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e88473b4bce4c08b8ae8f584f4de74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: /MTMR_PRIMARY/operating_state
 --- !u!114 &1631260100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3251,10 +3265,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dVRKConsoleROS:
+    teleopEnable: {fileID: 1631260098}
+    teleopSelectTeleop: {fileID: 0}
+    mtmOperatingState: {fileID: 1631260099}
+  stpConsoleROS:
+    cursorOperatingState: {fileID: 1631260103}
+    teleopSelectTeleop: {fileID: 1631260097}
   _footpedals: {fileID: 884409849}
   rosTopicData:
-    mTeleop: {fileID: 0}
-    mCURSOROperatingState: {fileID: 0}
+    mTeleopSelectTeleop: {fileID: 1631260108}
 --- !u!4 &1631260102
 Transform:
   m_ObjectHideFlags: 0
@@ -3272,6 +3292,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1631260103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631260096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e88473b4bce4c08b8ae8f584f4de74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: /R1_CURSOR/operating_state
 --- !u!114 &1631260108
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using Console;
 using Footpedals;
 using Menu;
 using RosSharp.RosBridgeClient;
+using RosSharp.RosBridgeClient.MessageTypes.Crtk;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -15,15 +16,18 @@ public class ConsoleStateManager : MonoBehaviour
     public UnityEvent menuIsVisible, menuIsNotVisible;
     
     // ROS Topics for knowing console's state
+    [System.Serializable]
     public class dVRK_Console_ROS
     {
         // Publishers
         public BoolPublisher teleopEnable;
         public KeyValuePublisher teleopSelectTeleop;
+        public OperatingStatePublisher mtmOperatingState;
         // Subscribers
 
     } public dVRK_Console_ROS dVRKConsoleROS;
-
+    
+    [System.Serializable]
     public class stp_Console_ROS
     {
         // Publishers
@@ -38,8 +42,9 @@ public class ConsoleStateManager : MonoBehaviour
     [System.Serializable]
     public class ros_TOPIC_DATA
     {
-        public KeyValueReader mTeleop;
-        public OperatingStateReader mCURSOROperatingState;
+        public KeyValueReader mTeleopSelectTeleop;
+        public OperatingState mCURSOROperatingState;
+        public OperatingState mMTMOperatingState;
     } public ros_TOPIC_DATA rosTopicData;
 
     public class ConsoleStates
