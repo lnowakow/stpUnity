@@ -1703,7 +1703,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStateString: 
-  cursorOperatingState: {fileID: 0}
 --- !u!1001 &757450403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2982,7 +2981,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434961550}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e398557723143cde9967d638fb85674, type: 3}
   m_Name: 

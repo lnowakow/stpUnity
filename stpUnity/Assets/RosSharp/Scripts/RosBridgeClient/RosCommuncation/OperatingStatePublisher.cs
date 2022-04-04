@@ -10,18 +10,17 @@ namespace RosSharp.RosBridgeClient
 {
     public class OperatingStatePublisher : UnityPublisher<OperatingState>
     {
-        public OperatingState data;
+        public OperatingState data = new OperatingState(null, "", true, false);
         private string _previousState = "";
         
         protected override void Start()
         {
             base.Start();
-            data.state = "";
         }
 
         private void Update()
         {
-            Debug.Log(_previousState);
+            //Debug.Log(_previousState);
             /*if (data.state != _previousState)
             {
                 UpdateMessage();

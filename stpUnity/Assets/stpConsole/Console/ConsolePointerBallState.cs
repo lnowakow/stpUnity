@@ -48,12 +48,12 @@ namespace Console
            console.stpConsoleROS.teleopSelectTeleop._data = console.rosTopicData.mTeleopSelectTeleop;
            console.stpConsoleROS.teleopSelectTeleop.ForceUpdate();
            // Update CURSOR operating state
-           console.rosTopicData.mCURSOROperatingState.state = "ENABLED";
+           console.rosTopicData.mCURSOROperatingState.state = "DISABLED";
            console.rosTopicData.mCURSOROperatingState.is_home = true;
            console.stpConsoleROS.cursorOperatingState.data = console.rosTopicData.mCURSOROperatingState;
            console.stpConsoleROS.cursorOperatingState.ForceUpdate();
            // Update MTM operating state
-           console.rosTopicData.mMTMOperatingState.state = "ENABLE";
+           console.rosTopicData.mMTMOperatingState.state = "DISABLED";
            console.rosTopicData.mMTMOperatingState.is_home = true;
            console.dVRKConsoleROS.mtmOperatingState.data = console.rosTopicData.mMTMOperatingState;
            console.dVRKConsoleROS.mtmOperatingState.ForceUpdate();

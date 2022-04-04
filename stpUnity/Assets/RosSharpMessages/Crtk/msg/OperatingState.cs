@@ -12,7 +12,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.Crtk
 {
     public class OperatingState : Message
     {
-        public const string RosMessageName = "crtk_msgs/Operating_state";
+        public const string RosMessageName = "crtk_msgs/operating_state";
 
         // 
         //  See https://github.com/collaborative-robotics/documentation/wiki/Robot-API-status
